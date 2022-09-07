@@ -21,6 +21,7 @@ function onFormSubmit(evt) {
     evt.currentTarget.reset();
     localStorage.removeItem(STOGAGE_KEY);
     console.log(formData);
+    formData = {};
 }
 
 function onFormInput(evt) {
@@ -33,8 +34,8 @@ function onPageRefresh() {
     const savedData = JSON.parse(localStorage.getItem(STOGAGE_KEY));
 
     if (savedData) {
-        refs.input.value = savedData.email;
-        refs.texterea.value = savedData.message;
+        refs.input.value = savedData.email || "";
+        refs.texterea.value = savedData.message || "";
         formData = savedData;
     }
 }
